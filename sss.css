@@ -1,10 +1,21 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	color: #333;
 	font-family: 'Segoe UI', 'Lucida Grande', Helvetica, sans-serif;
 	line-height: 1.5;
 	margin: 20px auto;
-	max-width: 800px;
-  font-size: 13px;
+	max-width: 725px;
+	font-size: 13px;
+	width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -100,7 +111,7 @@ body {
   
 }
 
-.fijo td {
+.evento-colspan td {
   color: #800;
 }
 
@@ -124,4 +135,51 @@ body {
 th, td {
   padding: 2px 10px;
   
+}
+
+#tabla {
+
+	width: 100%;
+	table-layout: fixed;
+
+	--col-hora-width: 50px;
+	--col-dura-width: 50px;
+	--col-bloque-width: 70px;
+
+	--col-dia-width: calc(
+		(100%
+			- var(--col-bloque-width)
+			- var(--col-dura-width)
+			- var(--col-hora-width)
+		) / 7
+	);
+
+	--col-dia-width: calc(50%);
+}
+
+.th-hora {
+	width: var(--col-hora-width);
+}
+.th-dura {
+	width: var(--col-dura-width);
+}
+.th-bloque {
+	width: var(--col-bloque-width);
+}
+.th-dia {
+	width: var(--col-dia-width);
+}
+
+.presencial {
+	background: #f7ffe6;
+}
+
+.col-current-day {
+	outline: rgba(255, 98, 0, 0.332) solid 1px;
+}
+
+#overlay-current-day {
+	position: absolute;
+	background-color: rgba(255, 98, 0, 0.05);
+	outline:#f90 solid 1px;
 }
